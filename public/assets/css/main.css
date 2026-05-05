@@ -1,0 +1,64 @@
+/*
+  main.css — Paleta institucional: #a32260 (principal), #e75330 (secundario)
+*/
+:root {
+  --primary: #a32260;
+  --secondary: #e75330;
+  --background: #fff;
+  --text: #212121;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+.header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1.5rem 0;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 2rem;
+  box-shadow: 0 4px 12px rgba(163,34,96,.09);
+}
+.footer {
+  margin-top: 48px;
+  background: var(--secondary);
+  color: #fff;
+  padding: .8rem 0;
+  text-align: center;
+  font-size: 1rem;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.7em 2em;
+  border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(163,34,96,.04);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--secondary);
+}
+.card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px #a3226012;
+  padding: 2.2rem 2rem 1.5rem;
+  max-width: 370px;
+  margin: 1.4rem auto;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 0.6em;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #a3226042;
+  border-radius: 4px;
+}
