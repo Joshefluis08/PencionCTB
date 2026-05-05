@@ -1,0 +1,80 @@
+# ══════════════════════════════════════════════════════════════════
+#  PensionCTB 2.5 — .gitignore
+# ══════════════════════════════════════════════════════════════════
+
+# ── Variables de entorno (NUNCA subir) ───────────────────────────
+.env
+.env.local
+.env.*.local
+*.env
+
+# ── Dependencias Composer ────────────────────────────────────────
+/vendor/
+
+# ── Logs y caché ─────────────────────────────────────────────────
+/storage/logs/*.log
+/storage/cache/*
+!/storage/logs/.gitkeep
+!/storage/cache/.gitkeep
+
+# ── Archivos subidos por usuarios ────────────────────────────────
+/storage/uploads/docs/*
+/storage/uploads/temp/*
+!/storage/uploads/docs/.gitkeep
+!/storage/uploads/temp/.gitkeep
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# ── Sistema operativo ────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── IDEs y editores ───────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.buildpath
+.settings/
+nbproject/
+
+# ── PHP ───────────────────────────────────────────────────────────
+*.cache
+.php-cs-fixer.cache
+.phpunit.result.cache
+phpunit.xml
+
+# ── Node (si se usa para compilar assets) ────────────────────────
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# ── Backups y temporales ─────────────────────────────────────────
+*.bak
+*.tmp
+*.temp
+*.zip
+*.tar.gz
+*.sql
+!/database/migrations/*.sql
+!/database/seeds/*.sql
+
+# ── Archivos PDF generados dinámicamente ─────────────────────────
+/public/uploads/*.pdf
+
+# ── Carpeta proyecto (entregas, documentación interna) ───────────
+/proyecto/
+
+# ── Certificados SSL locales ─────────────────────────────────────
+*.pem
+*.key
+*.crt

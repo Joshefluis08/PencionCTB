@@ -1,0 +1,39 @@
+# ══════════════════════════════════════════════════════════════
+# PensionCTB 2.5 — .htaccess RAÍZ del proyecto
+# Ubicación: /PensionCTB_2.5/.htaccess  (carpeta raíz, NO en public/)
+# ══════════════════════════════════════════════════════════════
+
+Options -Indexes
+Options -MultiViews
+
+RewriteEngine On
+
+# ── Forzar HTTPS ─────────────────────────────────────────────
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── Bloquear acceso directo a carpetas internas ───────────────
+RewriteRule ^(app|config|database|resources|routes|storage|tests|vendor)(/|$) - [F,L]
+
+# ── Redirigir todo a public/ ──────────────────────────────────
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L,QSA]
+
+# ── Bloquear archivos sensibles ───────────────────────────────
+<FilesMatch "\.(env|log|sql|lock|gitignore|md|sh|bak|ini)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ── Headers de seguridad ──────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── Compresión ────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+</IfModule>
